@@ -118,4 +118,6 @@ fi
 
 GIT_PROMPT_ONLY_IN_REPO=1
 GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+GIT_PROMPT_START="_LAST_COMMAND_INDICATOR_"
+GIT_PROMPT_END=" ${Yellow}${PathShort}${ResetColor} $ "
 source ~/.bash-git-prompt/gitprompt.sh
