@@ -117,4 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_SHOW_UNTRACKED_FILES=no
 source ~/.bash-git-prompt/gitprompt.sh
