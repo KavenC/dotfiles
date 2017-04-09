@@ -2,7 +2,12 @@
 	co = checkout
 	st = status
 	up = !git pull --rebase $@ && git submodule update --init --recursive
+	fixup = !bash -c 'git commit --fixup=`git rev-parse $0`'
+	lol = !git log --oneline --graph $@
 [color]
 	ui = true
 [push]
 	default = simple
+[user]
+	name = KavenC
+	email = kavenc@gmail.com
