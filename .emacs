@@ -63,3 +63,4 @@
 	  (add-to-list 'name-and-pos (cons name position))))))))
 (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
+(setq vc-follow-symlinks t)
