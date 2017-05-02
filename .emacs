@@ -148,3 +148,21 @@
 (autoload 'mo-git-blame-current "mo-git-blame" nil t)
 (global-set-key [?\C-c ?g ?c] 'mo-git-blame-current)
 (global-set-key [?\C-c ?g ?f] 'mo-git-blame-file)
+
+;; auto formating
+(defun reformat-region (&optional b e)
+  (interactive "r")
+  (when (not (buffer-file-name))
+    (error "A buffer must be associated with a file in order to use REFORMAT-REGION."))
+  (when (not (executable-find "clang-format"))
+    (error "clang-format not found."))
+  (shell-command-on-region b e
+                           "clang-format -style=\"{BasedOnStyle: llvm, IndentWidth: 4}\""
+                           (current-buffer) t)
+  (indent-region b e)
+  )
+
+;; Python
+(defun flycheck-python-setup ()
+  (flycheck-mode))
+(add-hook 'python-mode-hook #'flycheck-python-setup)
